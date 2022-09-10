@@ -31,6 +31,10 @@ export class TodoList {
         this.tasks = this.tasks.filter(task => !task.completed );
         this.saveLocalStorage();
     }
+
+    viewPendings() {
+        return this.tasks.filter(task => !task.completed ).length;
+    }
     
     saveLocalStorage() {
         localStorage.setItem('todo', JSON.stringify(this.tasks));

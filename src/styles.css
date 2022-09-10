@@ -33,6 +33,11 @@ body {
 	font-weight: 300;
 }
 
+img {
+    width: 150px;
+    margin-left: 50px;
+}
+
 :focus {
 	outline: 0;
 }
@@ -69,7 +74,8 @@ body {
 
 .todoapp h1 {
 	position: absolute;
-	top: -140px;
+	margin-left: 40px;
+	margin-top: 20px;
 	width: 100%;
 	font-size: 80px;
 	font-weight: 200;

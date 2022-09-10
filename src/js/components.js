@@ -5,9 +5,13 @@ const inputNewTodo = document.querySelector('.new-todo');
 const ibtnDeleteAllCompleted = document.querySelector('.clear-completed');
 const ulFilter = document.querySelector('.filters');
 const anchorFilters = document.querySelectorAll('.filter');
+const pendings = document.querySelector('#count');
+
 const newTodoList = new TodoList();
 
 export const createTodoHtml = ( todo ) => {
+
+    pendings.innerText = newTodoList.viewPendings();
 
     const htmlTodo = `
         <li class="${ todo.completed ? 'completed' : ''}" data-id="${ todo.id }">
@@ -45,6 +49,7 @@ divTodoList.addEventListener('click', (event) => {
     newTodoList.toggleTodo(todoId);
     elementName.includes('input') && todoElement.classList.toggle('completed');
     elementName.includes('button') && (newTodoList.deleteTodo( todoId ) , divTodoList.removeChild( todoElement ));
+    pendings.innerText = newTodoList.viewPendings();
 
 });
 
@@ -53,6 +58,7 @@ ibtnDeleteAllCompleted.addEventListener('click', () => {
     Array.from(divTodoList.children)
         .reverse()
         .forEach(child => child.classList.contains('completed') && divTodoList.removeChild(child));
+        pendings.innerText = newTodoList.viewPendings();
 });
 
 ulFilter.addEventListener('click', event => {
@@ -83,6 +89,7 @@ ulFilter.addEventListener('click', event => {
 
         }
     }
+    pendings.innerText = newTodoList.viewPendings();
 
 });
 
