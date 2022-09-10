@@ -527,3 +527,12 @@ hr {
 		left: 8px;
 	}
 }
+
+@media (max-width: 530px) {
+	#task {
+		width: 60%;
+		font-size: 50px;
+		font-weight: 100;
+		margin-left: 150px;
+	}
+}
